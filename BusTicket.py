@@ -85,6 +85,7 @@ class Admin:
         places[place_number] = new_place
         print(f"Route '{place_name}' added with departure at {time} and {seats} seats available.")
 
+#function to know the seats that are available
 class Place:
     def __init__(self, place_name, time, seats=20):
         self.place_name = place_name
