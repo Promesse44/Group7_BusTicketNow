@@ -19,7 +19,7 @@ class Admin:
         self.username = None
         self.password = None
 
-#this is the funtion that set the credentials of the admin
+#this is the funtion that set the credentials of the admin and admin can view bookinga ang add routhes and try to fix the essue the user will meet
     def set_credentials(self):
         """Set up admin username and password for the first time."""
         print("Set up your admin account:")
