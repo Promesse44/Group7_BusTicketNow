@@ -1,25 +1,21 @@
 #!/usr/bin/env python3
 from datetime import datetime
-#this is the class of the User
+
 class User:
     def __init__(self, name, email, telephone, location):
         self.name = name
         self.email = email
         self.telephone = telephone
         self.location = location
-
-
-    #this is the function that get the user information
+    
     def get_user_info(self):
         return f"Name: {self.name}, Email: {self.email}, Phone: {self.telephone}, Location: {self.location}"
 
-#this is the class of admin that contain the data of the admin
 class Admin:
     def __init__(self):
         self.username = None
         self.password = None
 
-#this is the funtion that set the credentials of the admin
     def set_credentials(self):
         """Set up admin username and password for the first time."""
         print("Set up your admin account:")
@@ -33,7 +29,6 @@ class Admin:
             print("Passwords do not match. Please try again.")
             self.set_credentials()
 
-#function for user's information(Admin)
     def login(self):
         """Login method for admin with username and password."""
         if not self.username or not self.password:
@@ -49,7 +44,6 @@ class Admin:
             print("Invalid username or password.")
             return False
 
-#when the inputed information is wrong the user is prompted to change password.
     def change_password(self):
         """Allow the admin to change the password."""
         current_password = input("Enter your current password: ")
@@ -64,7 +58,6 @@ class Admin:
         else:
             print("Incorrect current password.")
 
-#Method that allows admin to view all bookings
     def view_all_bookings(self, bookings):
         """Display all booked tickets with user information."""
         print("All Booked Tickets:")
@@ -74,7 +67,6 @@ class Admin:
             for booking in bookings:
                 print(f"{booking['user'].get_user_info()} - {booking['ticket'].get_ticket_info()}")
 
-#function that help Admin add new routes
     def add_place(self, places):
         """Add a new route to the available places."""
         place_name = input("Enter the name of the new route: ")
@@ -123,8 +115,7 @@ class BusTicketBooking:
         }
         self.bookings = []  # Shared booking list
 
-
-def create_user(self):
+    def create_user(self):
         """Prompt for user information and create a User instance."""
         name = input("Please enter your name: ")
         email = input("Please enter your email: ")
@@ -190,7 +181,7 @@ def create_user(self):
         if not self.admin.username or not self.admin.password:
             # Admin setup
             self.admin.set_credentials()
-       
+        
         # Admin login
         if self.admin.login():
             self.admin_dashboard()
