@@ -184,10 +184,10 @@ class BusTicketBooking:
     def admin_access(self):
         """Handles admin access, including initial setup and login."""
         if not self.admin.username or not self.admin.password:
-            # Admin setup
+            # # Admin setup: This block ensures the admin has set credentials if they haven't been set yet.
             self.admin.set_credentials()
         
-        # Admin login
+        # # Admin login: This block allows the admin to log in with the credentials provided earlier.
         if self.admin.login():
             self.admin_dashboard()
 
@@ -216,7 +216,7 @@ class BusTicketBooking:
                     self.display_places()
                     self.select_place()
                     if input("Enter 'b' to go back or any key to continue: ").lower() == 'b':
-                        break
+                        break # Breaks out of the loop to go back to the previous menu or exit.
                     self.view_tickets()
             elif user_type == 'admin':
                 self.admin_access()
