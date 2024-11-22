@@ -84,3 +84,41 @@ class Admin:
         place_number = max(places.keys()) + 1
         places[place_number] = new_place
         print(f"Route '{place_name}' added with departure at {time} and {seats} seats available.")
+
+class Place:
+    def __init__(self, place_name, time, seats=20):
+        self.place_name = place_name
+        self.time = time
+        self.seats = seats
+
+    def has_available_seat(self):
+        return self.seats > 0
+
+    def book_seat(self):
+        if self.has_available_seat():
+            self.seats -= 1
+            return True
+        return False
+
+    def get_place_info(self):
+        return f"{self.place_name} (Departs at {self.time}) - Available Seats: {self.seats}"
+
+class Ticket:
+    def __init__(self, ticket_name):
+        self.ticket_name = ticket_name
+        self.timestamp = datetime.now()  # Automatically sets the booking timestamp
+
+    def get_ticket_info(self):
+        return f"Ticket for {self.ticket_name}, Booked at {self.timestamp.strftime('%Y-%m-%d %H:%M:%S')}"
+
+class BusTicketBooking:
+    def __init__(self):
+        self.user = None
+        self.admin = Admin()  # Initialize Admin without credentials
+        self.places = {
+            1: Place('Nyanza - Nyabugogo', '10:00 AM'),
+            2: Place('Remera - Nyabugogo', '1:00 PM'),
+            3: Place('Karama - Kigali', '9:30 AM'),
+            4: Place('Gahanga - Kigali', '2:45 PM')
+        }
+        self.bookings = []  # Shared booking list
