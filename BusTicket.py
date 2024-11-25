@@ -16,10 +16,10 @@ class Admin:
         self.username = None
         self.password = None
 
-<<<<<<< HEAD
-#this is the funtion that set the credentials of the admin and admin can view bookinga ang add routhes and try to fix the essue the user will meet
-=======
->>>>>>> origin/main
+
+#this is the funtion that set the credentials of the admin and admin can view booking and add routhes and try to fix the issue the user will meet
+
+
     def set_credentials(self):
         """Set up admin username and password for the first time."""
         print("Set up your admin account:")
@@ -115,8 +115,9 @@ class BusTicketBooking:
         self.places = {
             1: Place('Nyanza - Nyabugogo', '10:00 AM'),
             2: Place('Remera - Nyabugogo', '1:00 PM'),
-            3: Place('Karama - Kigali', '9:30 AM'),
-            4: Place('Gahanga - Kigali', '2:45 PM')
+            3: Place('Karama - Nyabugogo', '9:30 AM'),
+            4: Place('Gahanga - Nyanza', '2:45 PM'),
+            5: Place('Nyanza - Downtown', '9:45 AM')
         }
         self.bookings = []  # Shared booking list
 
@@ -124,7 +125,7 @@ class BusTicketBooking:
         """Prompt for user information and create a User instance."""
         name = input("Please enter your name: ")
         email = input("Please enter your email: ")
-        telephone = input("Please enter your telephone: ")
+        telephone = input("Please enter your phone number: ")
         location = input("Please enter your location: ")
         self.user = User(name, email, telephone, location)
         print(f"User created: {self.user.get_user_info()}")
